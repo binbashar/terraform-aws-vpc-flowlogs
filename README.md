@@ -40,10 +40,8 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 #
 # VPC Flow Logs
 #
-
-```terraform
 module "vpc_flow_logs" {
-    source = "../../../devops-tf-modules/aws/vpc-flowlogs-bb"
+    source = "git::git@github.com:binbashar/terraform-aws-vpc-flowlogs.git?ref=v0.0.2"
 
     vpc_id = "your-vpc-id"
     bucket_name_prefix = "your-s3-bucket-name-prefix"
