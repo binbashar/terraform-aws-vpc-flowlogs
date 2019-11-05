@@ -2,8 +2,8 @@
 # AWS Provider Settings       #
 #=============================#
 provider "aws" {
-  region  = "${var.region}"
-  profile = "${var.profile}"
+  region  = var.region
+  profile = var.profile
 }
 
 variable "region" {
@@ -13,14 +13,15 @@ variable "region" {
 
 variable "profile" {
   description = "AWS Profile"
-  default     = "aws-shared-profile"
+  default     = "bb-ve-shared"
 }
+
 
 #=============================#
 # Backend Config (partial)    #
 #=============================#
 terraform {
-  required_version = ">= 0.11.14"
+  required_version = ">= 0.12.13"
 }
 
 #=============================#
@@ -34,10 +35,10 @@ variable "region_backend_data" {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
 
-  config {
-    region  = "${var.region_backend_data}"
-    profile = "${var.profile}"
-    bucket  = "demo-shared-terraform-state-storage-s3"
+  config = {
+    region  = var.region_backend_data
+    profile = var.profile
+    bucket  = "ve-shared-terraform-backend"
     key     = "shared/network/terraform.tfstate"
   }
 }
@@ -47,10 +48,11 @@ data "terraform_remote_state" "vpc" {
 #=============================#
 variable "environment" {
   description = "Environment Name"
-  default     = "dev"
+  default     = "shared"
 }
 
 variable "project" {
   description = "Environment Name"
-  default     = "demo"
+  default     = "ve"
 }
+

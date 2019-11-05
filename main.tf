@@ -2,10 +2,10 @@
 # Enable VPC flow logs for all traffic.
 #
 resource "aws_flow_log" "this" {
-  log_destination      = "${aws_s3_bucket.this.arn}"
+  log_destination      = aws_s3_bucket.this.arn
   log_destination_type = "s3"
   traffic_type         = "ALL"
-  vpc_id               = "${var.vpc_id}"
+  vpc_id               = var.vpc_id
 }
 
 #
@@ -14,7 +14,7 @@ resource "aws_flow_log" "this" {
 resource "aws_s3_bucket" "this" {
   bucket = "${var.bucket_name_prefix}-vpc-flowlogs"
   acl    = "private"
-  region = "${var.bucket_region}"
+  region = var.bucket_region
 
   # Versioning will not be needed for this
   versioning {
@@ -46,5 +46,6 @@ resource "aws_s3_bucket" "this" {
     }
   }
 
-  tags = "${var.tags}"
+  tags = var.tags
 }
+
