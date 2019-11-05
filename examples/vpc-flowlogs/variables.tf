@@ -2,8 +2,8 @@
 # AWS Provider Settings       #
 #=============================#
 provider "aws" {
-  region  = "${var.region}"
-  profile = "${var.profile}"
+  region  = var.region
+  profile = var.profile
 }
 
 variable "region" {
@@ -13,14 +13,27 @@ variable "region" {
 
 variable "profile" {
   description = "AWS Profile"
-  default     = "aws-shared-profile"
+  default     = "your-aws-iam-profile"
 }
 
 #=============================#
 # Backend Config (partial)    #
 #=============================#
 terraform {
-  required_version = ">= 0.11.14"
+  required_version = ">= 0.12.13"
+}
+
+#=============================#
+# Project Variables           #
+#=============================#
+variable "project" {
+  description = "Project id"
+  default     = "demo"
+}
+
+variable "environment" {
+  description = "Environment Name"
+  default     = "dev-test"
 }
 
 #=============================#
@@ -34,23 +47,10 @@ variable "region_backend_data" {
 data "terraform_remote_state" "vpc" {
   backend = "s3"
 
-  config {
-    region  = "${var.region_backend_data}"
-    profile = "${var.profile}"
+  config = {
+    region  = var.region_backend_data
+    profile = var.profile
     bucket  = "demo-shared-terraform-state-storage-s3"
     key     = "shared/network/terraform.tfstate"
   }
-}
-
-#=============================#
-# Project Variables           #
-#=============================#
-variable "environment" {
-  description = "Environment Name"
-  default     = "dev"
-}
-
-variable "project" {
-  description = "Environment Name"
-  default     = "demo"
 }
