@@ -23,7 +23,7 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | bucket\_name\_prefix | S3 Bucket Name Prefix | string | `"S3 Bucket for Terraform Remote State Storage"` | no |
-| bucket\_region | S3 Bucket Region | string | `""` | no |
+| bucket\_region | S3 Bucket Region | string | `"us-east-1"` | no |
 | tags | Tags To Apply To Created Resources | map | `<map>` | no |
 | vpc\_id | VPC ID | string | `""` | no |
 

@@ -4,10 +4,10 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 
 ## Releases
 - **Versions:** `<= 0.x.y` (Terraform 0.11.x compatible)
-    - eg: https://registry.terraform.io/modules/binbashar/iam-role-sts/aws/0.0.1
+    - eg: https://registry.terraform.io/modules/binbashar/vpc-flowlogs/aws/0.0.1
 
-- **Versions:** `>= 1.x.y` (Terraform 0.12.x compatible -> **WIP**)
-    - eg: https://registry.terraform.io/modules/binbashar/iam-role-sts/aws/1.0.0
+- **Versions:** `>= 1.x.y` (Terraform 0.12.x compatible)
+    - eg: https://registry.terraform.io/modules/binbashar/vpc-flowlogs/aws/1.0.0
 
 - **TODO:** Support AWS Org centralized flow logs -> https://aws.amazon.com/blogs/security/how-to-facilitate-data-analysis-and-fulfill-security-requirements-by-using-centralized-flow-log-data/
 
@@ -16,7 +16,7 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | bucket\_name\_prefix | S3 Bucket Name Prefix | string | `"S3 Bucket for Terraform Remote State Storage"` | no |
-| bucket\_region | S3 Bucket Region | string | `""` | no |
+| bucket\_region | S3 Bucket Region | string | `"us-east-1"` | no |
 | tags | Tags To Apply To Created Resources | map | `<map>` | no |
 | vpc\_id | VPC ID | string | `""` | no |
 

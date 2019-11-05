@@ -50,7 +50,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     region  = var.region_backend_data
     profile = var.profile
-    bucket  = "demo-shared-terraform-state-storage-s3"
-    key     = "shared/network/terraform.tfstate"
+    bucket  = "bb-dev-terraform-state-storage-s3"
+    key     = "dev/network/terraform.tfstate"
   }
 }
