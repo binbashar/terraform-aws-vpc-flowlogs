@@ -11,10 +11,10 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 
 ## Releases
 - **Versions:** `<= 0.x.y` (Terraform 0.11.x compatible)
-    - eg: https://registry.terraform.io/modules/binbashar/iam-role-sts/aws/0.0.1
+    - eg: https://registry.terraform.io/modules/binbashar/vpc-flow-logs/aws/0.0.1
 
-- **Versions:** `>= 1.x.y` (Terraform 0.12.x compatible -> **WIP**)
-    - eg: https://registry.terraform.io/modules/binbashar/iam-role-sts/aws/1.0.0
+- **Versions:** `>= 1.x.y` (Terraform 0.12.x compatible)
+    - eg: https://registry.terraform.io/modules/binbashar/vpc-flow-logs/aws/1.0.0
 
 - **TODO:** Support AWS Org centralized flow logs -> https://aws.amazon.com/blogs/security/how-to-facilitate-data-analysis-and-fulfill-security-requirements-by-using-centralized-flow-log-data/
 
@@ -23,7 +23,7 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | bucket\_name\_prefix | S3 Bucket Name Prefix | string | `"S3 Bucket for Terraform Remote State Storage"` | no |
-| bucket\_region | S3 Bucket Region | string | `""` | no |
+| bucket\_region | S3 Bucket Region | string | `"us-east-1"` | no |
 | tags | Tags To Apply To Created Resources | map | `<map>` | no |
 | vpc\_id | VPC ID | string | `""` | no |
 
@@ -49,3 +49,28 @@ module "vpc_flow_logs" {
     tags = "your-tags"
 }
 ```
+
+# Release Management
+
+## Docker based makefile commands
+- https://cloud.docker.com/u/binbash/repository/docker/binbash/git-release
+- https://github.com/binbashar/terraform-aws-vpc-flowlogs/blob/master/Makefile
+
+Root directory `Makefile` has the automated steps (to be integrated with **CircleCI jobs** []() )
+
+### CircleCi PR auto-release job
+<div align="left">
+  <img src="https://raw.githubusercontent.com/binbashar/terraform-aws-vpc-flowlogs/master/figures/circleci.png" alt="leverage-circleci" width="230"/>
+</div>
+
+- https://circleci.com/gh/binbashar/terraform-aws-vpc-flowlogs
+- **NOTE:** Will only run after merged PR.
+
+### Manual execution from workstation
+```
+$ make
+Available Commands:
+ - release-major-with-changelog make changelog-major && git add && git commit && make release-major
+ - release-minor-with-changelog make changelog-minor && git add && git commit && make release-minor
+ - release-patch-with-changelog make changelog-patch && git add && git commit && make release-patch
+ ```

@@ -13,7 +13,7 @@ variable "region" {
 
 variable "profile" {
   description = "AWS Profile"
-  default     = "your-aws-iam-profile"
+  default     = "bb-dev-deploymaster"
 }
 
 #=============================#
@@ -28,7 +28,7 @@ terraform {
 #=============================#
 variable "project" {
   description = "Project id"
-  default     = "demo"
+  default     = "bb"
 }
 
 variable "environment" {
