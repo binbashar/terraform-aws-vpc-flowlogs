@@ -4,9 +4,8 @@
 module "vpc_flow_logs" {
   source = "../../"
 
-  vpc_id             = "vpc-c3f41ca8"
+  vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
   bucket_name_prefix = "${var.project}-${var.environment}"
-  bucket_region      = var.region
-  tags               = local.tags
+  bucket_region = var.region
+  tags = local.tags
 }
-

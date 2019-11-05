@@ -7,4 +7,3 @@ output "bucket_arn" {
   value       = aws_s3_bucket.this.arn
   description = "S3 Bucket ARN"
 }
-

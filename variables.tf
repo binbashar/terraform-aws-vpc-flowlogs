@@ -10,7 +10,7 @@ variable "bucket_name_prefix" {
 
 variable "bucket_region" {
   description = "S3 Bucket Region"
-  default     = ""
+  default     = "us-east-1"
 }
 
 variable "tags" {
