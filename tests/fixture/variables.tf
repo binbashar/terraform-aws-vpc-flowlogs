@@ -1,13 +1,8 @@
 #=============================#
 # AWS Provider Settings       #
 #=============================#
-//provider "aws" {
-//  region  = var.region
-//  profile = var.profile
-//}
-
 provider "aws" {
-  version                 = "~> 2.63"
+  version                 = "~> 2.69"
   region                  = var.region
   profile                 = var.profile
   shared_credentials_file = "~/.aws/bb-le/config"
@@ -18,15 +13,16 @@ variable "region" {
   default     = "us-east-1"
 }
 
-//variable "profile" {
-//  description = "AWS Profile"
-//  default     = "bb-dev-deploymaster"
-//}
-
 variable "profile" {
   description = "AWS Profile"
-  default     = "bb-apps-devstg-devops"
+  default     = "bb-dev-deploymaster"
 }
+
+# Uncomment for local testing
+//variable "profile" {
+//  description = "AWS Profile"
+//  default     = "bb-apps-devstg-devops"
+//}
 
 #=============================#
 # Backend Config (partial)    #
