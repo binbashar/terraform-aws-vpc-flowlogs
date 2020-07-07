@@ -24,17 +24,20 @@ jobs:
           command: make format-check
 
       - run:
+          name: Install awscli
+          command: sudo pip install awscli
+
+      - run:
           name: Configure awscli
           command: |
             # AWS defautl awscli profile
-            # sudo chown -R $USER:$USER ~/.aws
             aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
             aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
             aws configure set region us-east-1
             aws configure set output json
 
             # AWS dev awscli profile
-            aws configure set role_arn arn:aws:iam::$AWS_ACCOUNT_ID_SHARED:role/DeployMaster --profile $AWS_PROFILE_NAME
+            aws configure set role_arn arn:aws:iam::$AWS_ACCOUNT_ID_DEV:role/DeployMaster --profile $AWS_PROFILE_NAME
             aws configure set source_profile default --profile $AWS_PROFILE_NAME
             # moving credentials to specific project folder
             mkdir --parents /home/circleci/.aws/bb-le
@@ -68,14 +71,13 @@ jobs:
           name: Configure awscli
           command: |
             # AWS defautl awscli profile
-            # sudo chown -R $USER:$USER ~/.aws
             aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
             aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
             aws configure set region us-east-1
             aws configure set output json
 
             # AWS dev awscli profile
-            aws configure set role_arn arn:aws:iam::$AWS_ACCOUNT_ID_SHARED:role/DeployMaster --profile $AWS_PROFILE_NAME
+            aws configure set role_arn arn:aws:iam::$AWS_ACCOUNT_ID_DEV:role/DeployMaster --profile $AWS_PROFILE_NAME
             aws configure set source_profile default --profile $AWS_PROFILE_NAME
             # moving credentials to specific project folder
             mkdir --parents /home/circleci/.aws/bb-le
