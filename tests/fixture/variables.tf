@@ -1,9 +1,16 @@
 #=============================#
 # AWS Provider Settings       #
 #=============================#
+//provider "aws" {
+//  region  = var.region
+//  profile = var.profile
+//}
+
 provider "aws" {
-  region  = var.region
-  profile = var.profile
+  version                 = "~> 2.63"
+  region                  = var.region
+  profile                 = var.profile
+  shared_credentials_file = "~/.aws/bb-le/config"
 }
 
 variable "region" {
@@ -11,16 +18,21 @@ variable "region" {
   default     = "us-east-1"
 }
 
+//variable "profile" {
+//  description = "AWS Profile"
+//  default     = "bb-dev-deploymaster"
+//}
+
 variable "profile" {
   description = "AWS Profile"
-  default     = "bb-dev-deploymaster"
+  default     = "bb-apps-devstg-devops"
 }
 
 #=============================#
 # Backend Config (partial)    #
 #=============================#
 terraform {
-  required_version = ">= 0.12.13"
+  required_version = ">= 0.12.28"
 }
 
 #=============================#
@@ -50,7 +62,7 @@ data "terraform_remote_state" "vpc" {
   config = {
     region  = var.region_backend_data
     profile = var.profile
-    bucket  = "bb-dev-terraform-state-storage-s3"
-    key     = "dev/network/terraform.tfstate"
+    bucket  = "bb-apps-devstg-terraform-backend"
+    key     = "apps-devstg/network/terraform.tfstate"
   }
 }

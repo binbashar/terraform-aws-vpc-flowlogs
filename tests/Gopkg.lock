@@ -10,7 +10,7 @@
   version = "v1.1.1"
 
 [[projects]]
-  digest = "1:f44d09e27cefd53e739b4469bc4e797164b86b9f4bece82dae2e1b17d52ec53d"
+  digest = "1:c38d84256675698495d6a225e5907ceff7f93ea763a2a4ba42f87e4cffc5f960"
   name = "github.com/gruntwork-io/terratest"
   packages = [
     "modules/collections",
@@ -21,10 +21,11 @@
     "modules/shell",
     "modules/ssh",
     "modules/terraform",
+    "modules/testing",
   ]
   pruneopts = "UT"
-  revision = "9f4f4f69d6521e2cb71c872297e8e04a890a5ec7"
-  version = "v0.22.2"
+  revision = "235646cc16d4e1c97a0135cc9f0d81966f8f08ca"
+  version = "v0.28.7"
 
 [[projects]]
   digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
@@ -35,32 +36,34 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:99d32780e5238c2621fff621123997c3e3cca96db8be13179013aea77dfab551"
+  digest = "1:729f65378817684798e53068862397c12daffa0757abbe073f6620a560fc6fb5"
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
     "require",
   ]
   pruneopts = "UT"
-  revision = "221dbe5ed46703ee255b1da0dec05086f5035f62"
-  version = "v1.4.0"
+  revision = "f654a9112bbeac49ca2cd45bfbe11533c4666cf8"
+  version = "v1.6.1"
 
 [[projects]]
   branch = "master"
-  digest = "1:4b049aae7a44fb6fb4d8e84355b145e591f686111817c0998fe31a9f8bf226dc"
+  digest = "1:ce462315eddbf9d57dcfe47dd240cfefcd23b24a63b72a53f215f3a3cc2346fc"
   name = "golang.org/x/crypto"
   packages = [
+    "blowfish",
+    "chacha20",
     "curve25519",
     "ed25519",
     "ed25519/internal/edwards25519",
-    "internal/chacha20",
     "internal/subtle",
     "poly1305",
     "ssh",
     "ssh/agent",
+    "ssh/internal/bcrypt_pbkdf",
   ]
   pruneopts = "UT"
-  revision = "c7e5f84aec591254278750bee18f39e5dd19cdb5"
+  revision = "75b288015ac94e66e3d6715fb68a9b41bf046ec2"
 
 [[projects]]
   branch = "master"
@@ -68,23 +71,23 @@
   name = "golang.org/x/net"
   packages = ["context"]
   pruneopts = "UT"
-  revision = "a882066a44e04a21d46e51451c71e131344e830e"
+  revision = "ab34263943818b32f575efc978a3d24e80b04bd7"
 
 [[projects]]
   branch = "master"
-  digest = "1:95abab3e07422980e85e253e49eb75c05c1dee6e84b50cb0d3353747ef8099eb"
+  digest = "1:4f551baaf9a9d45768a3117dcc379155977513cbad125b21b6c7ce94d5591280"
   name = "golang.org/x/sys"
   packages = ["cpu"]
   pruneopts = "UT"
-  revision = "ac3223d8017937d8cd94de35a801ea2459f6d5a0"
+  revision = "ddb9806d33aed8dbaac1cd6f1cba58952e87f933"
 
 [[projects]]
-  digest = "1:f26a5d382387e03a40d1471dddfba85dfff9bf05352d7e42d37612677c4d3c5c"
-  name = "gopkg.in/yaml.v2"
+  branch = "v3"
+  digest = "1:229cb0f6192914f518cc1241ede6d6f1f458b31debfa18bf3a5c9e4f7b01e24b"
+  name = "gopkg.in/yaml.v3"
   packages = ["."]
   pruneopts = "UT"
-  revision = "f90ceb4f409096b60e2e9076b38b304b8246e5fa"
-  version = "v2.2.5"
+  revision = "eeeca48fe7764f320e4870d231902bf9c1be2c08"
 
 [solve-meta]
   analyzer-name = "dep"

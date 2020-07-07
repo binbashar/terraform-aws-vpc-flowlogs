@@ -26,10 +26,8 @@ jobs:
       - run:
           name: Configure awscli
           command: |
-            echo "AWS_ACCESS_KEY_ID - $AWS_ACCESS_KEY_ID"
-            echo "AWS_PROFILE_NAME - $AWS_PROFILE_NAME"
-
             # AWS defautl awscli profile
+            sudo chown -R $USER:$USER ~/.aws
             aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
             aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
             aws configure set region us-east-1
@@ -38,6 +36,10 @@ jobs:
             # AWS dev awscli profile
             aws configure set role_arn arn:aws:iam::$AWS_ACCOUNT_ID_SHARED:role/DeployMaster --profile $AWS_PROFILE_NAME
             aws configure set source_profile default --profile $AWS_PROFILE_NAME
+            # moving credentials to specific project folder
+            mkdir --parents /home/circleci/.aws/bb-le
+            cp /home/circleci/.aws/credentials /home/circleci/.aws/bb-le/credentials
+            cp /home/circleci/.aws/config /home/circleci/.aws/bb-le/config
 
       - run:
           name: test2-terraform-linting
@@ -54,9 +56,9 @@ jobs:
     steps:
       - checkout
 
-      - run: pwd
-      - run: ls -ltra
-      - run: git branch
+      - run:
+          name: Context Info Cmds
+          command: pwd && ls -ltra && git branch
 
       - run:
           name: Install awscli
@@ -65,10 +67,8 @@ jobs:
       - run:
           name: Configure awscli
           command: |
-            echo "AWS_ACCESS_KEY_ID - $AWS_ACCESS_KEY_ID"
-            echo "AWS_PROFILE_NAME - $AWS_PROFILE_NAME"
-
             # AWS defautl awscli profile
+            sudo chown -R $USER:$USER ~/.aws
             aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
             aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
             aws configure set region us-east-1
@@ -77,9 +77,10 @@ jobs:
             # AWS dev awscli profile
             aws configure set role_arn arn:aws:iam::$AWS_ACCOUNT_ID_SHARED:role/DeployMaster --profile $AWS_PROFILE_NAME
             aws configure set source_profile default --profile $AWS_PROFILE_NAME
-
-      # - run: cat ~/.aws/credentials
-      # - run: cat ~/.aws/config
+            # moving credentials to specific project folder
+            mkdir --parents /home/circleci/.aws/bb-le
+            cp /home/circleci/.aws/credentials /home/circleci/.aws/bb-le/credentials
+            cp /home/circleci/.aws/config /home/circleci/.aws/bb-le/config
 
       - run:
           name: Test AWS permissions
