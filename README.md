@@ -65,3 +65,8 @@ Root directory `Makefile` has the automated steps (to be integrated with **Circl
 
 - https://circleci.com/gh/binbashar/terraform-aws-vpc-flowlogs
 - **NOTE:** Will only run after merged PR.
+
+- [**pipeline-job**](https://circleci.com/gh/binbashar/terraform-aws-vpc-flowlogs) (**NOTE:** Will only run after merged PR)
+- [**releases**](https://github.com/binbashar/terraform-aws-vpc-flowlogs/releases)
+- [**changelog**](https://github.com/binbashar/terraform-aws-vpc-flowlogs/blob/master/CHANGELOG.md)
+
