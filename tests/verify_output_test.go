@@ -7,7 +7,7 @@ import (
     "github.com/stretchr/testify/assert"
 )
 
-func TestAwsWaf(t *testing.T) {
+func TestAwsVpcFlowLogs(t *testing.T) {
     expectedValue1  := "arn:aws:s3:::bb-dev-test-vpc-flowlogs"
 
     terraformOptions := &terraform.Options {
