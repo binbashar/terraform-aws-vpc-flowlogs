@@ -14,7 +14,6 @@ resource "aws_flow_log" "this" {
 resource "aws_s3_bucket" "this" {
   bucket = "${var.bucket_name_prefix}-vpc-flowlogs"
   acl    = "private"
-  region = var.bucket_region
 
   # Versioning will not be needed for this
   versioning {

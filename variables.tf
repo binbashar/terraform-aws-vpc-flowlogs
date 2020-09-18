@@ -8,13 +8,7 @@ variable "bucket_name_prefix" {
   default     = "S3 Bucket for Terraform Remote State Storage"
 }
 
-variable "bucket_region" {
-  description = "S3 Bucket Region"
-  default     = "us-east-1"
-}
-
 variable "tags" {
   description = "Tags To Apply To Created Resources"
   default     = {}
 }
-

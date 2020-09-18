@@ -2,15 +2,22 @@
 # AWS Provider Settings       #
 #=============================#
 provider "aws" {
-  version                 = "~> 2.69"
+  version                 = "~> 3.0"
   region                  = var.region
   profile                 = var.profile
   shared_credentials_file = "~/.aws/bb/config"
 }
 
 variable "region" {
+  type        = string
   description = "AWS Region"
   default     = "us-east-1"
+}
+
+variable "region_secondary" {
+  type        = string
+  description = "AWS secondary Region the S3 replication bucket should reside in"
+  default     = "us-east-2"
 }
 
 variable "profile" {
@@ -20,6 +27,7 @@ variable "profile" {
 
 # Uncomment for local testing
 //variable "profile" {
+//  type        = string
 //  description = "AWS Profile"
 //  default     = "bb-apps-devstg-devops"
 //}
@@ -29,19 +37,6 @@ variable "profile" {
 #=============================#
 terraform {
   required_version = ">= 0.12.28"
-}
-
-#=============================#
-# Project Variables           #
-#=============================#
-variable "project" {
-  description = "Project id"
-  default     = "bb"
-}
-
-variable "environment" {
-  description = "Environment Name"
-  default     = "dev-test"
 }
 
 #=============================#

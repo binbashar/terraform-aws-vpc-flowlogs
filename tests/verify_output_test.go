@@ -12,7 +12,7 @@ func TestAwsVpcFlowLogs(t *testing.T) {
 
     terraformOptions := &terraform.Options {
         // The path to where our Terraform code is located
-        TerraformDir: "fixture/",
+        TerraformDir: "../examples/vpc-flowlogs",
 
         // Disable colors in Terraform commands so its easier to parse stdout/stderr
         NoColor: true,
