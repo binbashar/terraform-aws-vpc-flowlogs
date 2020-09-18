@@ -7,6 +7,15 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v1.0.5"></a>
+## [v1.0.5] - 2020-09-18
+
+- BBL-381 | updating tf parameters and reqs at README.md
+- BBL-381 | updating module and tests to be compatible with tf-aws-provider ver ~ 3.0
+- BBL-381 | fixing https://github.com/binbashar/terraform-aws-vpc-flowlogs/issues/7
+- BBL-381 | std repo structure + makefile standalone approach + README.md update
+
+
 <a name="v1.0.4"></a>
 ## [v1.0.4] - 2020-08-20
 
@@ -86,7 +95,8 @@ All notable changes to this project will be documented in this file.
 - Initial Commit terraform-aws-vpc-flowlogs module
 
 
-[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.4...HEAD
+[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.5...HEAD
+[v1.0.5]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.4...v1.0.5
 [v1.0.4]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.3...v1.0.4
 [v1.0.3]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.2...v1.0.3
 [v1.0.2]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.1...v1.0.2
