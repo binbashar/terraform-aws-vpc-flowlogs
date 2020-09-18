@@ -63,9 +63,9 @@ cp -r ./Gopkg* ./tests/ && rm -rf ./Gopkg*
 2. `terratest-go-test`
 ```
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
-TestAwsWaf 2019-11-05T18:05:12Z command.go:158: 
+TestAwsWaf 2019-11-05T18:05:12Z command.go:158:
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: Outputs:
-TestAwsWaf 2019-11-05T18:05:12Z command.go:158: 
+TestAwsWaf 2019-11-05T18:05:12Z command.go:158:
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: bucket_arn = arn:aws:s3:::bb-dev-test-vpc-flowlogs
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: flow_log_id = fl-024d9f7d9750903d6
 TestAwsWaf 2019-11-05T18:05:12Z retry.go:72: terraform [output -no-color bucket_arn]
@@ -80,7 +80,7 @@ TestAwsWaf 2019-11-05T18:05:34Z command.go:158: module.vpc_flow_logs_test.aws_fl
 TestAwsWaf 2019-11-05T18:05:35Z command.go:158: module.vpc_flow_logs_test.aws_flow_log.this: Destruction complete after 1s
 TestAwsWaf 2019-11-05T18:05:35Z command.go:158: module.vpc_flow_logs_test.aws_s3_bucket.this: Destroying... [id=bb-dev-test-vpc-flowlogs]
 TestAwsWaf 2019-11-05T18:05:36Z command.go:158: module.vpc_flow_logs_test.aws_s3_bucket.this: Destruction complete after 1s
-TestAwsWaf 2019-11-05T18:05:36Z command.go:158: 
+TestAwsWaf 2019-11-05T18:05:36Z command.go:158:
 TestAwsWaf 2019-11-05T18:05:36Z command.go:158: Destroy complete! Resources: 2 destroyed.
 PASS
 ok      project/tests   72.639s
@@ -101,9 +101,9 @@ sudo chown -R delivery:delivery .
 ### Tests Result: Passing
 ```
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
-TestAwsWaf 2019-11-05T18:05:12Z command.go:158: 
+TestAwsWaf 2019-11-05T18:05:12Z command.go:158:
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: Outputs:
-TestAwsWaf 2019-11-05T18:05:12Z command.go:158: 
+TestAwsWaf 2019-11-05T18:05:12Z command.go:158:
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: bucket_arn = arn:aws:s3:::bb-dev-test-vpc-flowlogs
 TestAwsWaf 2019-11-05T18:05:12Z command.go:158: flow_log_id = fl-024d9f7d9750903d6
 TestAwsWaf 2019-11-05T18:05:12Z retry.go:72: terraform [output -no-color bucket_arn]
@@ -118,7 +118,7 @@ TestAwsWaf 2019-11-05T18:05:34Z command.go:158: module.vpc_flow_logs_test.aws_fl
 TestAwsWaf 2019-11-05T18:05:35Z command.go:158: module.vpc_flow_logs_test.aws_flow_log.this: Destruction complete after 1s
 TestAwsWaf 2019-11-05T18:05:35Z command.go:158: module.vpc_flow_logs_test.aws_s3_bucket.this: Destroying... [id=bb-dev-test-vpc-flowlogs]
 TestAwsWaf 2019-11-05T18:05:36Z command.go:158: module.vpc_flow_logs_test.aws_s3_bucket.this: Destruction complete after 1s
-TestAwsWaf 2019-11-05T18:05:36Z command.go:158: 
+TestAwsWaf 2019-11-05T18:05:36Z command.go:158:
 TestAwsWaf 2019-11-05T18:05:36Z command.go:158: Destroy complete! Resources: 2 destroyed.
 PASS
 ok      project/tests   72.639s
