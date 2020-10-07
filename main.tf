@@ -49,8 +49,8 @@ resource "aws_s3_bucket" "this" {
 }
 
 resource "aws_s3_bucket_policy" "default" {
-  bucket   = aws_s3_bucket.this.id
-  policy   = <<POLICY
+  bucket = aws_s3_bucket.this.id
+  policy = <<POLICY
 {
   "Id": "TerraformStateBucketPolicies",
   "Version": "2012-10-17",
