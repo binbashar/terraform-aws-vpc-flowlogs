@@ -21,31 +21,31 @@ A Terraform module for enabling VPC Flow Logs to an S3 bucket.
 - **TODO:** Support AWS Org centralized flow logs -> https://aws.amazon.com/blogs/security/how-to-facilitate-data-analysis-and-fulfill-security-requirements-by-using-centralized-flow-log-data/
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements                                                                                                                                                                                                    
-                                                                                                                                                                                                                   
-| Name | Version |                                                                                                                                                                                                 
-|------|---------|                                                                                                                                                                                                 
-| terraform | >= 0.12.28 |                                                                                                                                                                                         
-| aws | ~> 3.0 |                                                                                                                                                                                                   
-                                                                                                                                                                                                                   
-## Providers                                                                                                                                                                                                       
-                                                                                                                                                                                                                   
-| Name | Version |                                                                                                                                                                                                 
-|------|---------|                                                                                                                                                                                                 
-| aws | ~> 3.0 |                                                                                                                                                                                                   
-                                                                                                                                                                                                                   
-## Inputs                                                                                                                                                                                                          
-                                                                                                                                                                                                                   
-| Name | Description | Type | Default | Required |                                                                                                                                                                 
-|------|-------------|------|---------|:--------:|                                                                                                                                                                 
-| bucket\_name\_prefix | S3 Bucket Name Prefix | `string` | `"S3 Bucket for Terraform Remote State Storage"` | no |                                                                                                
-| tags | Tags To Apply To Created Resources | `map` | `{}` | no |                                                                                                                                                  
-| vpc\_id | VPC ID | `string` | `""` | no |                                                                                                                                                                        
-                                                                                                                                                                                                                   
-## Outputs                                                                                                                                                                                                         
-                                                                                                                                                                                                                   
-| Name | Description |                                                                                                                                                                                             
-|------|-------------|                                                                                                                                                                                             
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12.28 |
+| aws | ~> 3.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | ~> 3.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| bucket\_name\_prefix | S3 Bucket Name Prefix | `string` | `"S3 Bucket for Terraform Remote State Storage"` | no |
+| tags | Tags To Apply To Created Resources | `map` | `{}` | no |
+| vpc\_id | VPC ID | `string` | `""` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
 | bucket\_arn | S3 Bucket ARN |
 | flow\_log\_id | Flow Log ID |
 
