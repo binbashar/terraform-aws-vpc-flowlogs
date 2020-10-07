@@ -48,3 +48,26 @@ resource "aws_s3_bucket" "this" {
   tags = var.tags
 }
 
+resource "aws_s3_bucket_policy" "default" {
+  bucket   = aws_s3_bucket.this.id
+  policy   = <<POLICY
+{
+  "Id": "TerraformStateBucketPolicies",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EnforceSSlRequestsOnly",
+      "Action": "s3:*",
+      "Effect": "Deny",
+      "Resource": "${aws_s3_bucket.this.arn}/*",
+      "Condition": {
+         "Bool": {
+           "aws:SecureTransport": "false"
+          }
+      },
+      "Principal": "*"
+    }
+  ]
+}
+POLICY
+}
