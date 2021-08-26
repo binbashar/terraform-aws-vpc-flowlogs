@@ -66,6 +66,20 @@ resource "aws_s3_bucket_policy" "default" {
           }
       },
       "Principal": "*"
+    },
+    {
+      "Sid": "AllowVpcFlowLogsDeliveryService",
+      "Action": "s3:PutObject",
+      "Effect": "Allow",
+      "Resource": "${aws_s3_bucket.this.arn}/*",
+      "Condition": {
+         "StringEquals": {
+           "s3:x-amz-acl": "bucket-owner-full-control"
+          }
+      },
+      "Principal": {
+        "Service": "delivery.logs.amazonaws.com"
+      }
     }
   ]
 }
