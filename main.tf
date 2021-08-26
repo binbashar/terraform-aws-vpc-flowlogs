@@ -46,6 +46,8 @@ resource "aws_s3_bucket" "this" {
   }
 
   tags = var.tags
+
+  force_destroy = var.force_destroy
 }
 
 resource "aws_s3_bucket_public_access_block" "default" {

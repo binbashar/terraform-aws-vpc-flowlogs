@@ -12,3 +12,8 @@ variable "tags" {
   description = "Tags To Apply To Created Resources"
   default     = {}
 }
+
+variable "force_destroy" {
+  description = "Whether to forcefully destroy the bucket or not"
+  default     = false
+}
