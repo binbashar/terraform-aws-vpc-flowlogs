@@ -19,5 +19,6 @@ init-makefiles: ## initialize makefiles
 
 -include ${MAKEFILES_DIR}/circleci/circleci.mk
 -include ${MAKEFILES_DIR}/release-mgmt/release.mk
+-include ${MAKEFILES_DIR}/terraform14/terraform14-root-context.mk
 -include ${MAKEFILES_DIR}/terraform14/terraform14.mk
 -include ${MAKEFILES_DIR}/terratest14/terratest14.mk
