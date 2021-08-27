@@ -79,14 +79,6 @@ jobs:
           name: test-terraform-linting
           command: make tflint-deep
 
-      - run:
-          name: test-terratests-dep-init
-          command: make terratest-dep-init
-
-      - run:
-          name: test-terratests-go-test
-          command: make terratest-go-test
-
       - slack/notify:
           event: fail
           mentions: '@leverage-support'
