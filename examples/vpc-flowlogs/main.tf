@@ -31,4 +31,5 @@ module "vpc_flow_logs_test" {
   vpc_id             = data.terraform_remote_state.vpc.outputs.vpc_id
   bucket_name_prefix = "${var.project}-${var.environment}"
   tags               = local.tags
+  force_destroy      = true
 }
