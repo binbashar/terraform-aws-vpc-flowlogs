@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v1.0.12"></a>
+## [v1.0.12] - 2022-04-25
+
+- Adds Support for AWS Provider 4.9+
+
+
 <a name="v1.0.11"></a>
 ## [v1.0.11] - 2021-10-08
 
@@ -131,7 +137,8 @@ All notable changes to this project will be documented in this file.
 - Initial Commit terraform-aws-vpc-flowlogs module
 
 
-[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.11...HEAD
+[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.12...HEAD
+[v1.0.12]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.11...v1.0.12
 [v1.0.11]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.10...v1.0.11
 [v1.0.10]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.9...v1.0.10
 [v1.0.9]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.8...v1.0.9
