@@ -7,6 +7,13 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v1.0.14"></a>
+## [v1.0.14] - 2022-08-05
+
+- deletign yarn.lock.
+- adding bucket name output.
+
+
 <a name="v1.0.13"></a>
 ## [v1.0.13] - 2022-05-13
 
@@ -143,7 +150,8 @@ All notable changes to this project will be documented in this file.
 - Initial Commit terraform-aws-vpc-flowlogs module
 
 
-[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.13...HEAD
+[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.14...HEAD
+[v1.0.14]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.13...v1.0.14
 [v1.0.13]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.12...v1.0.13
 [v1.0.12]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.11...v1.0.12
 [v1.0.11]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.10...v1.0.11
