@@ -71,12 +71,13 @@ data "aws_iam_policy_document" "combined" {
 
   source_policy_documents = compact([
     var.enforce_ssl ? data.aws_iam_policy_document.ssl_enforce[0].json : "",
-    data.aws_iam_policy_document.allow_vpc_flowlogs_delivery_service.json,
+    var.enable_vpc_delivery_service ? data.aws_iam_policy_document.allow_vpc_flowlogs_delivery_service[0].json : "",
     var.custom_policy != null ? var.custom_policy : ""
   ])
 }
 
 data "aws_iam_policy_document" "ssl_enforce" {
+
   count = var.enforce_ssl ? 1 : 0
 
   statement {
@@ -109,6 +110,8 @@ data "aws_iam_policy_document" "ssl_enforce" {
 }
 
 data "aws_iam_policy_document" "allow_vpc_flowlogs_delivery_service" {
+
+  count = var.enable_vpc_delivery_service ? 1 : 0
 
   statement {
     sid = "AllowVpcFlowLogsDeliveryService"

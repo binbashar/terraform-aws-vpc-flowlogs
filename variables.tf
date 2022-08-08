@@ -28,6 +28,12 @@ variable "enforce_ssl" {
   default     = true
 }
 
+variable "enable_vpc_delivery_service" {
+  description = "Enable VPC delivery service policy"
+  type        = bool
+  default     = true
+}
+
 variable "custom_policy" {
   description = "Custom policy"
   type        = string
