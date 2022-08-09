@@ -44,16 +44,22 @@ No modules.
 |------|------|
 | [aws_flow_log.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/flow_log) | resource |
 | [aws_s3_bucket.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
-| [aws_s3_bucket_policy.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
+| [aws_s3_bucket_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy) | resource |
 | [aws_s3_bucket_public_access_block.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
+| [aws_iam_policy_document.allow_vpc_flowlogs_delivery_service](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.combined](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.ssl_enforce](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_name_prefix"></a> [bucket\_name\_prefix](#input\_bucket\_name\_prefix) | S3 Bucket Name Prefix | `string` | `"S3 Bucket for Terraform Remote State Storage"` | no |
+| <a name="input_custom_policy"></a> [custom\_policy](#input\_custom\_policy) | Custom policy | `string` | `null` | no |
+| <a name="input_enable_vpc_delivery_service"></a> [enable\_vpc\_delivery\_service](#input\_enable\_vpc\_delivery\_service) | Enable VPC delivery service policy | `bool` | `true` | no |
+| <a name="input_enforce_ssl"></a> [enforce\_ssl](#input\_enforce\_ssl) | Enforce bucket SSL encryption | `bool` | `true` | no |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | Whether to forcefully destroy the bucket or not | `bool` | `false` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags To Apply To Created Resources | `map` | `{}` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags To Apply To Created Resources | `any` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | `""` | no |
 
 ## Outputs
