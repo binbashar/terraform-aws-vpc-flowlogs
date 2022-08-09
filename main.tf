@@ -118,7 +118,7 @@ data "aws_iam_policy_document" "allow_vpc_flowlogs_delivery_service" {
 
     principals {
       type        = "AWS"
-      identifiers = "*"
+      identifiers = ["*"]
     }
 
     principals {
