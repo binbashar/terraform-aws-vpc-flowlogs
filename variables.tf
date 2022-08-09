@@ -39,3 +39,9 @@ variable "custom_policy" {
   type        = string
   default     = null
 }
+
+variable "enable_default_policy" {
+  description = "Enable default policy"
+  type        = bool
+  default     = true
+}

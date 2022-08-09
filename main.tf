@@ -60,14 +60,14 @@ resource "aws_s3_bucket_public_access_block" "default" {
 
 # New
 resource "aws_s3_bucket_policy" "this" {
-  count = local.create_bucket && local.attach_policy ? 1 : 0
+  count = var.enable_default_policy ? 1 : 0
 
   bucket = aws_s3_bucket.this.id
   policy = data.aws_iam_policy_document.combined[0].json
 }
 
 data "aws_iam_policy_document" "combined" {
-  count = local.create_bucket && local.attach_policy ? 1 : 0
+  count = var.enable_default_policy ? 1 : 0
 
   source_policy_documents = compact([
     var.enforce_ssl ? data.aws_iam_policy_document.ssl_enforce[0].json : "",
