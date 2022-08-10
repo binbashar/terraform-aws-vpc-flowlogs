@@ -32,4 +32,5 @@ module "vpc_flow_logs_test" {
   bucket_name_prefix = "${var.project}-${var.environment}"
   tags               = local.tags
   force_destroy      = true
+
 }

@@ -117,11 +117,6 @@ data "aws_iam_policy_document" "allow_vpc_flowlogs_delivery_service" {
     sid = "AllowVpcFlowLogsDeliveryService"
 
     principals {
-      type        = "AWS"
-      identifiers = ["*"]
-    }
-
-    principals {
       type        = "Service"
       identifiers = ["delivery.logs.amazonaws.com"]
     }
@@ -137,7 +132,7 @@ data "aws_iam_policy_document" "allow_vpc_flowlogs_delivery_service" {
     ]
 
     condition {
-      test     = "StringEquals"
+      test     = "ForAnyValue:StringEquals"
       variable = "s3:x-amz-acl"
 
       values = [
