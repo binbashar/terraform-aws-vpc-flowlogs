@@ -8,8 +8,8 @@ import (
 )
 
 func TestAwsVpcFlowLogs(t *testing.T) {
-    expectedValue1  := "arn:aws:s3:::bb-dev-test-vpc-flowlogs"
-    expectedValue2  := "bb-dev-test-vpc-flowlogs"
+    expectedValue1  := "arn:aws:s3:::bb-apps-devstg-test-vpc-flowlogs"
+    expectedValue2  := "bb-apps-devstg-test-vpc-flowlogs"
 
     terraformOptions := &terraform.Options {
         // The path to where our Terraform code is located
