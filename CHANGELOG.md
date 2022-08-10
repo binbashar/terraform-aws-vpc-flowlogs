@@ -7,6 +7,21 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v1.0.15"></a>
+## [v1.0.15] - 2022-08-10
+
+- Update Terratest expected values
+- Add bucket name output
+- Removed duplicated principal identifier in policy
+- Change environmet name
+- Update README
+- Add enable_default_policy variable
+- Update README
+- Fix set of identifiers
+- Add enable_vpc_delivery_service flag
+- * Add suport for enforceSSL policy * Add support to add extra policies to be merged with the one configurable through the module
+
+
 <a name="v1.0.14"></a>
 ## [v1.0.14] - 2022-08-05
 
@@ -150,7 +165,8 @@ All notable changes to this project will be documented in this file.
 - Initial Commit terraform-aws-vpc-flowlogs module
 
 
-[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.14...HEAD
+[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.15...HEAD
+[v1.0.15]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.14...v1.0.15
 [v1.0.14]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.13...v1.0.14
 [v1.0.13]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.12...v1.0.13
 [v1.0.12]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.11...v1.0.12
