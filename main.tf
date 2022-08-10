@@ -58,40 +58,86 @@ resource "aws_s3_bucket_public_access_block" "default" {
   restrict_public_buckets = true
 }
 
-resource "aws_s3_bucket_policy" "default" {
+# New
+resource "aws_s3_bucket_policy" "this" {
+  count = var.enable_default_policy ? 1 : 0
+
   bucket = aws_s3_bucket.this.id
-  policy = <<POLICY
-{
-  "Id": "TerraformStateBucketPolicies",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "EnforceSSlRequestsOnly",
-      "Action": "s3:*",
-      "Effect": "Deny",
-      "Resource": "${aws_s3_bucket.this.arn}/*",
-      "Condition": {
-         "Bool": {
-           "aws:SecureTransport": "false"
-          }
-      },
-      "Principal": "*"
-    },
-    {
-      "Sid": "AllowVpcFlowLogsDeliveryService",
-      "Action": "s3:PutObject",
-      "Effect": "Allow",
-      "Resource": "${aws_s3_bucket.this.arn}/*",
-      "Condition": {
-         "StringEquals": {
-           "s3:x-amz-acl": "bucket-owner-full-control"
-          }
-      },
-      "Principal": {
-        "Service": "delivery.logs.amazonaws.com"
-      }
-    }
-  ]
+  policy = data.aws_iam_policy_document.combined[0].json
 }
-POLICY
+
+data "aws_iam_policy_document" "combined" {
+  count = var.enable_default_policy ? 1 : 0
+
+  source_policy_documents = compact([
+    var.enforce_ssl ? data.aws_iam_policy_document.ssl_enforce[0].json : "",
+    var.enable_vpc_delivery_service ? data.aws_iam_policy_document.allow_vpc_flowlogs_delivery_service[0].json : "",
+    var.custom_policy != null ? var.custom_policy : ""
+  ])
+}
+
+data "aws_iam_policy_document" "ssl_enforce" {
+
+  count = var.enforce_ssl ? 1 : 0
+
+  statement {
+    sid = "EnforceSSlRequestsOnly"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+
+    effect = "Deny"
+
+    actions = [
+      "s3:*",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.this.arn}/*",
+    ]
+
+    condition {
+      test     = "Bool"
+      variable = "aws:SecureTransport"
+
+      values = [
+        "false",
+      ]
+    }
+  }
+}
+
+data "aws_iam_policy_document" "allow_vpc_flowlogs_delivery_service" {
+
+  count = var.enable_vpc_delivery_service ? 1 : 0
+
+  statement {
+    sid = "AllowVpcFlowLogsDeliveryService"
+
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+
+    effect = "Allow"
+
+    actions = [
+      "s3:PutObject",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.this.arn}/*",
+    ]
+
+    condition {
+      test     = "ForAnyValue:StringEquals"
+      variable = "s3:x-amz-acl"
+
+      values = [
+        "bucket-owner-full-control",
+      ]
+    }
+  }
 }

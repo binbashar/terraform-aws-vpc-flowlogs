@@ -8,5 +8,5 @@ variable "project" {
 
 variable "environment" {
   description = "Environment Name"
-  default     = "dev-test"
+  default     = "apps-devstg-test"
 }
