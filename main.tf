@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "this" {
 
   # Versioning will not be needed for this
   versioning {
-    enabled = false
+    enabled = var.enable_versioning
   }
 
   # Enable encryption at rest

@@ -45,3 +45,9 @@ variable "enable_default_policy" {
   type        = bool
   default     = true
 }
+
+variable "enable_versioning" {
+  description = "Enable bucket versioning"
+  type        = bool
+  default     = false
+}
