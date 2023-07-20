@@ -5,6 +5,7 @@ resource "aws_flow_log" "this" {
   log_destination      = aws_s3_bucket.this.arn
   log_destination_type = "s3"
   traffic_type         = "ALL"
+  log_format           = var.log_format
   vpc_id               = var.vpc_id
 }
 
