@@ -57,7 +57,7 @@ No modules.
 | <a name="input_enable_vpc_delivery_service"></a> [enable\_vpc\_delivery\_service](#input\_enable\_vpc\_delivery\_service) | Enable VPC delivery service policy | `bool` | `true` | no |
 | <a name="input_enforce_ssl"></a> [enforce\_ssl](#input\_enforce\_ssl) | Enforce bucket SSL encryption | `bool` | `true` | no |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | Whether to forcefully destroy the bucket or not | `bool` | `false` | no |
-| <a name="input_log_format"></a> [log\_format](#input\_log\_format) | VPC Flow Logs Format | `string` | `"The fields to include in the flow log record, in the order in which they should appear."` | no |
+| <a name="input_log_format"></a> [log\_format](#input\_log\_format) | VPC Flow Logs Format | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags To Apply To Created Resources | `any` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | `""` | no |
 

@@ -13,7 +13,7 @@ variable "bucket_name_prefix" {
 variable "log_format" {
   description = "VPC Flow Logs Format"
   type        = string
-  default     = "The fields to include in the flow log record, in the order in which they should appear."
+  default     = null
 }
 
 variable "tags" {
