@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v1.0.18"></a>
+## [v1.0.18] - 2023-07-20
+
+- Add support for custom log format ([#17](https://github.com/binbashar/terraform-aws-vpc-flowlogs/issues/17))
+
+
 <a name="v1.0.17"></a>
 ## [v1.0.17] - 2023-02-27
 
@@ -177,7 +183,8 @@ All notable changes to this project will be documented in this file.
 - Initial Commit terraform-aws-vpc-flowlogs module
 
 
-[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.17...HEAD
+[Unreleased]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.18...HEAD
+[v1.0.18]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.17...v1.0.18
 [v1.0.17]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.16...v1.0.17
 [v1.0.16]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.15...v1.0.16
 [v1.0.15]: https://github.com/binbashar/terraform-aws-vpc-flowlogs/compare/v1.0.14...v1.0.15
