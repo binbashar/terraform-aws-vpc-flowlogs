@@ -10,6 +10,12 @@ variable "bucket_name_prefix" {
   default     = "S3 Bucket for Terraform Remote State Storage"
 }
 
+variable "log_format" {
+  description = "VPC Flow Logs Format"
+  type        = string
+  default     = "The fields to include in the flow log record, in the order in which they should appear."
+}
+
 variable "tags" {
   description = "Tags To Apply To Created Resources"
   type        = any
