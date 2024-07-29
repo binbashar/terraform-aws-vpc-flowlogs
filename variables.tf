@@ -54,6 +54,20 @@ variable "enable_default_policy" {
 
 variable "enable_versioning" {
   description = "Enable bucket versioning"
-  type        = bool
-  default     = false
+  type        = string
+  default     = "Disabled"
+  validation {
+    condition     = can(regex("^(Enabled|Disabled|Suspended)$", var.enable_versioning))
+    error_message = "Wrong state. Available only: Enabled, Disabled or Suspended"
+  }
+}
+
+variable "sse_algorithm" {
+  description = "Server-side encryption algorythm"
+  type        = string
+  default     = "AES256"
+  validation {
+    condition     = can(regex("^(AES256|aws:kms)$", var.sse_algorithm))
+    error_message = "Wrong SSE algorythm. Available only: AES256 or aws:kms"
+  }
 }

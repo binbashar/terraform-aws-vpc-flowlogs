@@ -53,7 +53,7 @@ No modules.
 | <a name="input_bucket_name_prefix"></a> [bucket\_name\_prefix](#input\_bucket\_name\_prefix) | S3 Bucket Name Prefix | `string` | `"S3 Bucket for Terraform Remote State Storage"` | no |
 | <a name="input_custom_policy"></a> [custom\_policy](#input\_custom\_policy) | Custom policy | `string` | `null` | no |
 | <a name="input_enable_default_policy"></a> [enable\_default\_policy](#input\_enable\_default\_policy) | Enable default policy | `bool` | `true` | no |
-| <a name="input_enable_versioning"></a> [enable\_versioning](#input\_enable\_versioning) | Enable bucket versioning | `bool` | `false` | no |
+| <a name="input_enable_versioning"></a> [enable\_versioning](#input\_enable\_versioning) | Enable bucket versioning | `string` | `Disabled` | no |
 | <a name="input_enable_vpc_delivery_service"></a> [enable\_vpc\_delivery\_service](#input\_enable\_vpc\_delivery\_service) | Enable VPC delivery service policy | `bool` | `true` | no |
 | <a name="input_enforce_ssl"></a> [enforce\_ssl](#input\_enforce\_ssl) | Enforce bucket SSL encryption | `bool` | `true` | no |
 | <a name="input_force_destroy"></a> [force\_destroy](#input\_force\_destroy) | Whether to forcefully destroy the bucket or not | `bool` | `false` | no |

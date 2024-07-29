@@ -14,27 +14,42 @@ resource "aws_flow_log" "this" {
 #
 resource "aws_s3_bucket" "this" {
   bucket = "${var.bucket_name_prefix}-vpc-flowlogs"
+
+  tags = var.tags
+
+  force_destroy = var.force_destroy
+}
+
+resource "aws_s3_bucket_acl" "default" {
+  bucket = aws_s3_bucket.this.id
   acl    = "private"
-
-  # Versioning will not be needed for this
-  versioning {
-    enabled = var.enable_versioning
+}
+# Versioning will not be needed for this
+resource "aws_s3_bucket_versioning" "default" {
+  bucket = aws_s3_bucket.this.id
+  versioning_configuration {
+    status = var.enable_versioning
   }
+}
 
-  # Enable encryption at rest
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+# Enable encryption at rest
+resource "aws_s3_bucket_server_side_encryption_configuration" "default" {
+  bucket = aws_s3_bucket.this.id
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = var.sse_algorithm
     }
   }
+}
 
-  # Enable lifecycle:
-  #   - After 30 days, data is moved to Standard Infrequent Access
-  #   - After 60 days, data is expired
-  lifecycle_rule {
-    enabled = true
+# Enable lifecycle:
+#   - After 30 days, data is moved to Standard Infrequent Access
+#   - After 60 days, data is expired
+resource "aws_s3_bucket_lifecycle_configuration" "default" {
+  bucket = aws_s3_bucket.this.id
+  rule {
+    id     = "vpc-flow-log-rule-1"
+    status = "Enabled"
 
     transition {
       days          = 30
@@ -45,10 +60,6 @@ resource "aws_s3_bucket" "this" {
       days = 60
     }
   }
-
-  tags = var.tags
-
-  force_destroy = var.force_destroy
 }
 
 resource "aws_s3_bucket_public_access_block" "default" {
